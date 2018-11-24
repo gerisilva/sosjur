@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:composition template="_template.xhtml">
+		<ui:define name="titulo_pagina">Nova solicitação</ui:define>
+		<ui:define name="conteudo">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h:messages id="msg" class="alert alert-danger alerta"/>
+					</div>
+				</div>
+				
+				<!-- LINHA FORMULARIO -->
+				<div class="row">
+					<div class="col">
+						<div class="card">
+						<div class="card-header">Nova solicitação</div>
+						<div class="card-body">
+							<h:form id="formDados">
+								<div class="form-row">
+									<div class="form-group col-md-12">
+										<h:outputLabel value="Endereço" for="logradouro"/>
+										<h:inputText class="form-control" id="logradouro" value="#{solicitacaoController.solicitacao.logradouro}" readonly="false" required="true" requiredMessage="Endereço Obrigatório.">
+											<f:passThroughAttribute name="maxlength" value="35" />
+										</h:inputText>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md-12">
+										<h:outputLabel value="Número (ou próximo)" for="numero"/>
+										<h:inputText class="form-control" id="numero" value="#{solicitacaoController.solicitacao.numero}" readonly="false" required="false" >
+											<f:passThroughAttribute name="maxlength" value="6" />
+										</h:inputText>
+									</div>
+								</div>									
+								<div class="form-row">
+									<div class="form-group col-md-12">
+										<h:outputLabel value="Bairro" for="bairro"/>
+										<h:inputText class="form-control" id="bairro" value="#{solicitacaoController.solicitacao.bairro}" readonly="false" required="true" requiredMessage="Bairro Obrigatório.">
+											<f:passThroughAttribute name="maxlength" value="40" />
+										</h:inputText>
+									</div>									
+								</div>
+								<div class="form-row">
+									<h:commandButton class="btn btn-success btn-lg btn-block" value="Solicitar" action="#{solicitacaoController.gravar}" disabled="false" >
+										<f:ajax event="blur" render="formDados"/>
+									</h:commandButton>
+								</div>
+							</h:form>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+</html>

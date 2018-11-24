@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-fit=no" />
+		<title>
+			<ui:insert name="titulo_pagina"></ui:insert>	
+		</title>
+		<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="resources/css/meu-estilo.css" />
+	</h:head>
+	<h:body>
+		<div id="cabecalho" >
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				 <h:form>
+					<h:commandLink class="navbar-brand" action="index?faces-redirect=true">SOS</h:commandLink>
+				</h:form> 
+			  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    	<span class="navbar-toggler-icon"></span>
+			  	</button>
+			
+			  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    	<ul class="navbar-nav mr-auto">
+			      		
+			      		<li class="nav-item active">
+			        		<h:form>
+								<h:commandLink class="nav-link" action="solicitacao?faces-redirect=true">Solicitar <span class="sr-only">(current)</span></h:commandLink>
+							</h:form>
+			        		
+			      		</li>
+			      		
+			      	<!--  	<li class="nav-item dropdown">
+			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          			Cadastros
+			        		</a>
+			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<h:form>
+					          		<h:commandLink class="dropdown-item" action="fornecedor?faces-redirect=true" rendered="#{loginController.temAcesso('fornecedor')}">Fornecedor</h:commandLink>
+						          	<h:commandLink class="dropdown-item" action="motorista?faces-redirect=true" rendered="#{loginController.temAcesso('motorista')}">Motorista</h:commandLink>
+						          	<h:commandLink class="dropdown-item" action="paciente?faces-redirect=true" rendered="#{loginController.temAcesso('paciente')}">Paciente</h:commandLink>
+						          	<h:commandLink class="dropdown-item" action="usuario?faces-redirect=true" rendered="#{loginController.temAcesso('usuario')}">Usuário</h:commandLink>
+						          	<div class="dropdown-divider"></div>
+					          	</h:form>
+			        		</div>
+			      		</li>			
+			      		<li class="nav-item dropdown">
+			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          			Permissões
+			        		</a>
+			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<h:form>
+					          		<h:commandLink class="dropdown-item" action="funcionalidade?faces-redirect=true" rendered="#{loginController.temAcesso('funcionalidade')}">Funcionalidade</h:commandLink>
+					          		<h:commandLink class="dropdown-item" action="grupo?faces-redirect=true" rendered="#{loginController.temAcesso('grupo')}">Grupo de funcionalidades</h:commandLink>
+					          	</h:form>
+			        		</div>
+			      		</li>
+			      		<li class="nav-item dropdown">
+			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          			Veículos
+			        		</a>
+			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<h:form>
+					          		<h:commandLink class="dropdown-item" action="veiculo?faces-redirect=true" rendered="#{loginController.temAcesso('veiculo')}">Gerenciar veículo</h:commandLink>
+					          		<h:commandLink class="dropdown-item" action="baixarveiculo?faces-redirect=true" rendered="#{loginController.temAcesso('baixarveiculo')}">Baixar veículo</h:commandLink>
+					          		<h:commandLink class="dropdown-item" action="liberarveiculoparaabastecer?faces-redirect=true" rendered="#{loginController.temAcesso('liberarveiculoparaabastecer')}">Liberar veículo para abastecer</h:commandLink>
+					          	</h:form>
+			        		</div>
+			      		</li>
+			      		<li class="nav-item dropdown">
+			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          			Ordem de viagem
+			        		</a>
+			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<h:form>
+					          		<h:commandLink class="dropdown-item" action="ordensdeviagem?faces-redirect=true" rendered="#{loginController.temAcesso('ordensdeviagem')}">Gerenciar</h:commandLink>
+					          		<h:commandLink class="dropdown-item" action="finalizarordemdeviagem?faces-redirect=true" rendered="#{loginController.temAcesso('finalizarordemdeviagem')}">Finalizar</h:commandLink>
+					          	</h:form>
+			        		</div>
+			      		</li>
+			      		<li class="nav-item dropdown">
+			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          			Portaria
+			        		</a>
+			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<h:form>
+					          		<h:commandLink class="dropdown-item" action="saidaveiculo?faces-redirect=true" rendered="#{loginController.temAcesso('saidaveiculo')}">Saída de veículo</h:commandLink>
+					          		<h:commandLink class="dropdown-item" action="entradaveiculo?faces-redirect=true" rendered="#{loginController.temAcesso('entradaveiculo')}">Entrada de veículo</h:commandLink>
+					          		<h:commandLink class="dropdown-item" action="consultarmovimentosveiculos?faces-redirect=true" rendered="#{loginController.temAcesso('consultarmovimentosveiculos')}">Consultar movimentos de veículos</h:commandLink>
+					          	</h:form>
+			        		</div>
+			      		</li>
+			      		<li class="nav-item dropdown">
+			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          			Abastecimento
+			        		</a>
+			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          	<h:form>
+					          		<h:commandLink class="dropdown-item" action="consultaveiculoliberadoabastecer?faces-redirect=true" rendered="#{loginController.temAcesso('consultaveiculoliberadoabastecer')}">Consultar veículo liberado</h:commandLink>
+					          		<h:commandLink class="dropdown-item" action="abastecimento?faces-redirect=true" rendered="#{loginController.temAcesso('abastecimento')}">Novo abastecimento</h:commandLink>
+					          	</h:form>
+			        		</div>
+			      		</li>		-->
+			    	</ul>
+			    	
+			    	<h:form class="form-inline my-2 my-lg-0">
+			      		<h:commandLink class="btn btn-outline-success my-2 my-sm-0" action="#{loginController.deslogar}">Sair</h:commandLink>
+			    	</h:form>
+			  	</div>
+			</nav>				
+			<h1>
+				<ui:insert name="titulo"></ui:insert>
+			</h1>
+		</div>
+		<div id="conteudo" >
+			<ui:insert name="conteudo"></ui:insert>
+		</div>
+		<script src="resources/js/jquery-3.2.1.min.js" />
+		<script src="resources/js/popper.min.js" />
+		<script src="resources/js/bootstrap.min.js" />
+	</h:body>
+</html>
